@@ -180,11 +180,14 @@ except Exception as e:
     pass
 
 # Carregar o dataset
-df = pd.read_csv(r'/Users/pedromarques/Library/CloudStorage/GoogleDrive-pmagmarques1971@gmail.com/My Drive/Master Degree/ISCTE/1º Semestre/Redes Avançadas/Projeto Final/ca-IMDB/ca-IMDB.edges',delim_whitespace=True,skiprows=3,names=['Filme', 'Ator'])
+##df = pd.read_csv(r'/Users/pedromarques/Library/CloudStorage/GoogleDrive-pmagmarques1971@gmail.com/My Drive/Master Degree/ISCTE/1º Semestre/Redes Avançadas/Projeto Final/ca-IMDB/ca-IMDB.edges',delim_whitespace=True,skiprows=3,names=['Filme', 'Ator'])
+
+df = pd.read_csv(r'ca-IMDB.edges',delim_whitespace=True,skiprows=3,names=['Filme', 'Ator'])
 
 ### Análise exploratória dos Dados
 
 ## Numero de atores e filmes
+
 print("Numero de Filme:" + str(df['Filme'].value_counts()))
 print("Numero de Atores:" + str(df['Ator'].value_counts()))
 
