@@ -186,22 +186,26 @@ df = pd.read_csv(r'ca-IMDB.edges',delim_whitespace=True,skiprows=3,names=['Filme
 
 ### Análise exploratória dos Dados
 
+print("Análise exploratória dos Dados")
+
 ## Numero de atores e filmes
 
 print("Numero de Filme:" + str(df['Filme'].value_counts()))
 print("Numero de Atores:" + str(df['Ator'].value_counts()))
 
-## Filmes que um Ator já participou
+print("Filmes que um Ator já participou")
 
 print(df.groupby('Ator')['Filme'].apply(list).sort_values(key=lambda x: x.str.len(), ascending=False))
 
-## Filmes e os atores que participaram
+print("Filmes e os atores que participaram")
 
 print(df.groupby('Filme')['Ator'].apply(list).sort_values(key=lambda x: x.str.len(), ascending=False))
 
+print("Pares_Atores_Frequentes")
+
 print(Pares_Atores_Frequentes(df))
 
-## Estatísticas descritivas
+print("Estatísticas descritivas")
 print(df.describe())
 
 
@@ -236,6 +240,8 @@ print(df.describe())
 
 # Visualizando os componentes principais
 #print(principal_components)
+
+
 
 G = bipartite_netword(df)
 
