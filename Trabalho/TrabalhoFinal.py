@@ -12,6 +12,8 @@ from scipy.sparse import lil_matrix
 def Pares_Atores_Frequentes(df):
 
     filmes_atores = df.groupby('Filme')['Ator'].apply(list).reset_index()
+
+    print(filmes_atores)
     
     # Encontrar pares de atores que participaram do mesmo filme
     pares_atores_comum = []
@@ -24,6 +26,8 @@ def Pares_Atores_Frequentes(df):
     
     # Contar a frequência de cada par de atores
     atores_comum_freq = pd.Series(pares_atores_comum).value_counts()
+
+    print(atores_comum_freq)
     
     # Exibir os pares de atores que mais participaram dos mesmos filmes
     return atores_comum_freq
@@ -203,7 +207,9 @@ print(df.groupby('Filme')['Ator'].apply(list).sort_values(key=lambda x: x.str.le
 
 print("Pares_Atores_Frequentes")
 
-##print(Pares_Atores_Frequentes(df))
+Atores_Freq = Pares_Atores_Frequentes(df)
+
+print(Atores_Freq)
 
 print("Estatísticas descritivas")
 print(df.describe())
