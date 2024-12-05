@@ -1,0 +1,39 @@
+name: Execute TrabalhoFinal.py with nohup
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Etapa 1: Fazer checkout do código
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Etapa 2: Configurar Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      # Etapa 3: Instalar dependências (se necessário)
+      # pip install -r requirements.txt  # Se tiver um arquivo requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          /workspaces/Redes_Avancadas/Trabalho/python_libraries.sh
+
+      # Etapa 4: Executar o script Python com nohup e redirecionar para um arquivo
+      - name: Run TrabalhoFinal.py with nohup
+        run: |
+          nohup python3 /workspaces/Redes_Avancadas/Trabalho/TrabalhoFinal.py > /workspaces/Redes_Avancadas/Trabalho/ResultadoFinal.txt 2>&1 &
+      
+      # Etapa 5: Verificar se o script foi executado e exibir o conteúdo do arquivo de resultado
+      - name: Display result file
+        run: |
+          cat /workspaces/Redes_Avancadas/Trabalho/ResultadoFinalPython.txt
