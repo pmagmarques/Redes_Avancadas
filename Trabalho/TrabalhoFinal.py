@@ -21,13 +21,18 @@ def Pares_Atores_Frequentes(df):
     for _, row in filmes_atores.iterrows():
         atores_comum = row['Ator']
         # Criar todos os pares de atores que participaram no mesmo filme
+        
         if len(atores_comum) > 1:
             pares_atores_comum.extend(combinations(sorted(atores_comum), 2))
+            
+    print(f"Total de pares de atores encontrados: {len(pares_atores_comum)}")
     
     # Contar a frequência de cada par de atores
     atores_comum_freq = pd.Series(pares_atores_comum).value_counts()
 
-    print(atores_comum_freq)
+    print(f"Total de pares de atores encontrados: {len(pares_atores_comum)}")
+
+    print(f"Total de pares contados: {len(atores_comum_freq)}")
     
     # Exibir os pares de atores que mais participaram dos mesmos filmes
     return atores_comum_freq
