@@ -199,7 +199,7 @@ print(df.groupby('Ator')['Filme'].apply(list).sort_values(key=lambda x: x.str.le
 
 print(df.groupby('Filme')['Ator'].apply(list).sort_values(key=lambda x: x.str.len(), ascending=False))
 
-Pares_Atores_Frequentes(atores_comum_freq)
+print(Pares_Atores_Frequentes(df))
 
 ## Estatísticas descritivas
 print(df.describe())
