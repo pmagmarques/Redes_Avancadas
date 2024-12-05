@@ -271,7 +271,7 @@ print("density")
 
 Var_density = density(G)
 
-print("density": " + str(Var_density))
+print("density: " + str(Var_density))
 
 print("clustering")
 
